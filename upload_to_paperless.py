@@ -101,7 +101,9 @@ def main() -> None:
         ),
     )
     parser.add_argument(
-        "file_path",
+        "file_paths",
+        metavar="file_path",
+        nargs="+",
         type=str,
         help="The path to the file to upload.",
     )
@@ -121,7 +123,8 @@ def main() -> None:
         version=9,
     )
 
-    upload(api_config, Path(args.file_path))
+    for p in args.file_paths:
+        upload(api_config, Path(p))
 
 
 if __name__ == "__main__":
