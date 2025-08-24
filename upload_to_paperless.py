@@ -101,6 +101,11 @@ def main() -> None:
         ),
     )
     parser.add_argument(
+        "--remove",
+        action="store_true",
+        help="Remove the file after successful upload.",
+    )
+    parser.add_argument(
         "file_paths",
         metavar="file_path",
         nargs="+",
@@ -124,7 +129,12 @@ def main() -> None:
     )
 
     for p in args.file_paths:
-        upload(api_config, Path(p))
+        path = Path(p)
+
+        upload(api_config, path)
+
+        if args.remove:
+            path.unlink()
 
 
 if __name__ == "__main__":
