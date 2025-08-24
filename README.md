@@ -22,4 +22,4 @@ From the virtual env.
 pyinstaller.exe --onefile --noconsole .\upload_to_paperless.py
 ```
 
-Executable file will be available in the `dist` folder. From PowerShell, [`build.ps1`](build.ps1) can alternatively be used.
+Executable file will be available in the `dist` folder. From PowerShell, [`build.ps1`](build.ps1) can alternatively be used (but it might require some execution policy changes).
